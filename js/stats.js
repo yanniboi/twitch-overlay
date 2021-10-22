@@ -8,22 +8,34 @@ function fetchDataRepeat() {
     setTimeout(function(){
         doFetchData();
         fetchDataRepeat();
-    }, 4000);
+    }, 5000);
 }
 
 function doFetchData() {
-    fetch('../twitch-stats/stats.json')
-        .then(response => response.text())
-        .then(data => {
-            data = JSON.parse(data);
-            // Do something with your data
-            console.log(data);
-            recentFollowerElement.setAttribute('data-value', data.recentFollower);
-            followerElement.setAttribute('data-value', data.followCount);
-            updateMarkup();
-        });
-}
+    const file = 'twitch-stats/stats.json';
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                const allText = rawFile.responseText;
+                // console.log(allText);
 
+                const data = JSON.parse(allText);
+                // console.log(data);
+
+                // Do something with your data
+                recentFollowerElement.setAttribute('data-value', data.recentFollower);
+                followerElement.setAttribute('data-value', data.followCount);
+                updateMarkup();
+            }
+        }
+    }
+    rawFile.send(null);
+}
 
 function updateMarkup() {
     streamElement.innerHTML = streamElement.getAttribute("data-value");

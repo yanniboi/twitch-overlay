@@ -5,7 +5,7 @@ const TwitchApi = require("node-twitch").default;
 
 const twitch = new TwitchApi({
     client_id: process.env.CLIENT_ID,
-    client_secret: process.env.CLIENT_REQUEST,
+    client_secret: process.env.CLIENT_SECRET,
 });
 
 async function getUserInfo(id){
@@ -73,8 +73,10 @@ function currentDate() {
     return datetime;
 }
 
+// Use the following to find the user id.
 // const uname = 'yanni_boi';
 // getUserInfo(uname);
 
+// Use getUserInfo to get the ID.
 const id = '131656348';
 fetchData(id);

@@ -24,6 +24,10 @@ body {
     max-width: 475px;
 }
 
+.hidden {
+    display: none;
+}
+
 .label {
     margin-right: 10px;
 }
