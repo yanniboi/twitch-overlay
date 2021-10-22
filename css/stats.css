@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Jump and Play';
+    url('../fonts/Jump and Play.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+body {
+    font-family: 'Jump and Play';
+    font-size: 25px;
+    color: #413a52;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    /*background: url("../images/live-panel.png") center no-repeat;*/
+    height: 1080px;
+    width: 1920px;
+}
+
+.limit {
+    text-overflow: '...';
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 475px;
+}
+
+.label {
+    margin-right: 10px;
+}
+
+.positioned {
+    position: absolute;
+    min-width: 200px;
+}
+
+.top {
+    top: 18px;
+    width: 100%;
+}
+
+.bottom {
+    bottom: 70px;
+    width: 100%;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.middle {
+    right: 50%;
+}
+
+.top .left {
+    left: 5px;
+}
+
+.top .right {
+    left: 1450px;
+}
+
+.bottom .left {
+    left: 240px;
+}
+
+.bottom .middle {
+    left: 900px;
+}
+
+.bottom .right {
+    left: 1400px;
+}
