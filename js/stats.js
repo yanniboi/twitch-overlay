@@ -1,8 +1,22 @@
+const daysElement = document.getElementById("data-days");
 const streamElement = document.getElementById("data-stream");
 const viewElement = document.getElementById("data-view");
 const followerElement = document.getElementById("data-follower");
 const recentRaidElement = document.getElementById("data-recent-raid");
 const recentFollowerElement = document.getElementById("data-recent-follower");
+
+function updateRemainingDays() {
+    const remainingDays = dayCounter();
+    daysElement.setAttribute('data-value', remainingDays);
+}
+
+function dayCounter() {
+    const today = new Date();
+    const deadline = new Date(today.getFullYear(), 11, 11);
+
+    var one_day=1000*60*60*24;
+    return Math.ceil((deadline.getTime()-today.getTime())/(one_day));
+}
 
 function fetchDataRepeat() {
     setTimeout(function(){
@@ -30,7 +44,7 @@ function doFetchData() {
                 // Do something with your data
                 recentFollowerElement.setAttribute('data-value', data.recentFollower);
                 followerElement.setAttribute('data-value', data.followCount);
-                updateMarkup();
+                updateRepeatingMarkup();
             }
         }
     }
@@ -38,6 +52,7 @@ function doFetchData() {
 }
 
 function updateMarkup() {
+    daysElement.innerHTML = daysElement.getAttribute("data-value");
     streamElement.innerHTML = streamElement.getAttribute("data-value");
     viewElement.innerHTML = viewElement.getAttribute("data-value");
     followerElement.innerHTML = followerElement.getAttribute("data-value");
@@ -45,5 +60,11 @@ function updateMarkup() {
     recentFollowerElement.innerHTML = recentFollowerElement.getAttribute("data-value").toUpperCase();
 }
 
+function updateRepeatingMarkup() {
+    followerElement.innerHTML = followerElement.getAttribute("data-value");
+    recentFollowerElement.innerHTML = recentFollowerElement.getAttribute("data-value").toUpperCase();
+}
+
+updateRemainingDays()
 updateMarkup();
 fetchDataRepeat();

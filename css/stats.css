@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'Jump and Play';
-    url('../fonts/Jump and Play.ttf')  format('truetype'), /* Safari, Android, iOS */
+    font-family: JumpandPlay;
+    src: url('../fonts/JumpandPlay.otf') format("opentype");
 }
 
 body {
-    font-family: 'Jump and Play';
+    font-family: 'JumpandPlay';
     font-size: 25px;
     color: #413a52;
     overflow: hidden;
@@ -18,10 +18,10 @@ body {
 }
 
 .limit {
-    text-overflow: '...';
+    text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 475px;
+    max-width: 425px;
 }
 
 .hidden {
@@ -43,8 +43,13 @@ body {
 }
 
 .bottom {
-    bottom: 70px;
+    bottom: 50px;
     width: 100%;
+}
+
+.bottom .pre {
+    top: -40px;
+    left: 240px;
 }
 
 .left {
