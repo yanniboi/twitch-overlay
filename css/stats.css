@@ -12,7 +12,6 @@ body {
 
 .container {
     position: relative;
-    /*background: url("../images/live-panel.png") center no-repeat;*/
     height: 1080px;
     width: 1920px;
 }
@@ -43,12 +42,18 @@ body {
 }
 
 .bottom {
-    bottom: 50px;
+    bottom: 70px;
     width: 100%;
 }
 
+.bottom .heading {
+    font-size: 2rem;
+    top: -80px;
+    left: 240px;
+}
+
 .bottom .pre {
-    top: -40px;
+    top: -35px;
     left: 240px;
 }
 
@@ -77,9 +82,10 @@ body {
 }
 
 .bottom .middle {
-    left: 900px;
+    left: 775px;
+    min-width: 400px;
 }
 
 .bottom .right {
-    left: 1400px;
+    left: 1300px;
 }

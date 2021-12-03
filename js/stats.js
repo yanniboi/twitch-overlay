@@ -4,6 +4,7 @@ const viewElement = document.getElementById("data-view");
 const followerElement = document.getElementById("data-follower");
 const recentRaidElement = document.getElementById("data-recent-raid");
 const recentFollowerElement = document.getElementById("data-recent-follower");
+const currentGameElement = document.getElementById("data-current-game");
 
 function updateRemainingDays() {
     const remainingDays = dayCounter();
@@ -44,6 +45,8 @@ function doFetchData() {
                 // Do something with your data
                 recentFollowerElement.setAttribute('data-value', data.recentFollower);
                 followerElement.setAttribute('data-value', data.followCount);
+                recentRaidElement.setAttribute('data-value', data.recentRaid);
+                currentGameElement.setAttribute('data-value', data.currentGame);
                 updateRepeatingMarkup();
             }
         }
@@ -53,16 +56,30 @@ function doFetchData() {
 
 function updateMarkup() {
     daysElement.innerHTML = daysElement.getAttribute("data-value");
-    streamElement.innerHTML = streamElement.getAttribute("data-value");
-    viewElement.innerHTML = viewElement.getAttribute("data-value");
-    followerElement.innerHTML = followerElement.getAttribute("data-value");
-    recentRaidElement.innerHTML = recentRaidElement.getAttribute("data-value").toUpperCase();
-    recentFollowerElement.innerHTML = recentFollowerElement.getAttribute("data-value").toUpperCase();
+
+    if (streamElement !== null)
+        streamElement.innerHTML = streamElement.getAttribute("data-value")
+    if (viewElement !== null)
+        viewElement.innerHTML = viewElement.getAttribute("data-value");
+    if (followerElement !== null)
+        followerElement.innerHTML = followerElement.getAttribute("data-value");
+    if (recentRaidElement !== null)
+        recentRaidElement.innerHTML = recentRaidElement.getAttribute("data-value").toUpperCase();
+    if (recentFollowerElement !== null)
+        recentFollowerElement.innerHTML = recentFollowerElement.getAttribute("data-value").toUpperCase();
+    if (currentGameElement !== null)
+        currentGameElement.innerHTML = currentGameElement.getAttribute("data-value").toUpperCase();
 }
 
 function updateRepeatingMarkup() {
-    followerElement.innerHTML = followerElement.getAttribute("data-value");
-    recentFollowerElement.innerHTML = recentFollowerElement.getAttribute("data-value").toUpperCase();
+    if (recentRaidElement !== null)
+        recentRaidElement.innerHTML = recentRaidElement.getAttribute("data-value").toUpperCase();
+    if (followerElement !== null)
+        followerElement.innerHTML = followerElement.getAttribute("data-value");
+    if (recentFollowerElement !== null)
+        recentFollowerElement.innerHTML = recentFollowerElement.getAttribute("data-value").toUpperCase();
+    if (currentGameElement !== null)
+        currentGameElement.innerHTML = currentGameElement.getAttribute("data-value").toUpperCase();
 }
 
 updateRemainingDays()

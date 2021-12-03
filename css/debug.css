@@ -1,0 +1,7 @@
+.container {
+    background: url("../images/live-panel.png") center no-repeat;
+}
+
+.center.alert-wrapper {
+    background: black;
+}

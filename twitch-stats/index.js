@@ -38,8 +38,11 @@ async function run(id) {
     const recentFollower = await getRecentFollow(id);
     // console.log(recentFollower);
 
+    const recentRaid = fs.readFileSync('recent_follow.txt', 'ascii').toString().replace(/(\r\n|\n|\r)/gm, "");
+    const currentGame = fs.readFileSync('current_game.txt', 'ascii').toString().replace(/(\r\n|\n|\r)/gm, "");
+
     try {
-        const data = fs.writeFileSync('stats.json', JSON.stringify({followCount, recentFollower}))
+        const data = fs.writeFileSync('stats.json', JSON.stringify({followCount, recentFollower, recentRaid, currentGame}))
         // File written successfully
         console.log(currentDate() + ": Successful update");
     } catch (err) {
